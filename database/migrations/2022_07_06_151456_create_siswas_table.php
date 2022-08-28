@@ -15,15 +15,13 @@ return new class extends Migration
     {
         Schema::create('siswa', function (Blueprint $table) {
             $table->id();
-            $table->string('nis');
-            $table->string('nama_siswa');
+            $table->string('nis',9);
+            $table->string('nama_siswa',50);
             $table->string('alternatif')->nullable();
-            $table->string('email')->unique()->nullable();
             $table->string('no_telp');
             $table->string('alamat');
             $table->year('tahun_masuk');
             $table->enum('jenis_kelamin',['Laki-Laki','Perempuan']);
-            $table->string('avatar');
             $table->unsignedBigInteger('kelas_id');
 
             $table->foreign('kelas_id')

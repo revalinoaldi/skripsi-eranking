@@ -19,10 +19,10 @@ return new class extends Migration
             $table->string('username')->unique();
             $table->string('email')->unique();
             $table->string('alamat');
-            $table->string('no_telp',14);
+            $table->string('no_telp',20);
             $table->string('password');
-            $table->string('avatar');
             $table->rememberToken();
+            $table->enum('active',[0,1])->default(1);
             $table->timestamps();
         });
     }

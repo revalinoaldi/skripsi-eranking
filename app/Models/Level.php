@@ -10,8 +10,15 @@ class Level extends Model
 {
     use HasFactory;
     use Sluggable;
-    protected $guarded = ['id'];
 
+    protected $guarded = ['id'];
+    protected $table = 'level';
+
+    /**
+     * Return the sluggable configuration array for this model.
+     *
+     * @return array
+     */
     public function sluggable(): array
     {
         return [
@@ -19,5 +26,15 @@ class Level extends Model
                 'source' => 'level'
             ]
         ];
+    }
+
+    public function getRouteKeyName()
+    {
+        return 'slug';
+    }
+
+    public function user()
+    {
+        return $this->hasMany(User::class);
     }
 }
